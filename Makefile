@@ -16,7 +16,7 @@ FAST = -Ofast
 
 FLAGS = -Wall -Wextra -Werror
 
-NAME = brain
+NAME = ft_retro
 
 SRC = main.cpp
 
