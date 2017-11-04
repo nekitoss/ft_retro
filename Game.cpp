@@ -12,3 +12,15 @@
 
 
 #include "Game.h"
+#include <cstdlib>
+Game::Game() {
+    player = new Player(10, 10);
+    for (int i = 0; i < COUNT_ENEMYS; ++i)
+    {
+        int x;
+        int y;
+        enemys_array[i] = new Enemy(1 ,1);
+
+    }
+
+}

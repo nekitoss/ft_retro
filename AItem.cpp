@@ -20,6 +20,13 @@ AItem::AItem(AItem const &item) {
     *this = item;
 }
 
+AItem::AItem() {
+    _X0 = 0;
+    _Y0 = 0;
+    _X = 0;
+    _Y = 0;
+}
+
 AItem::~AItem() {
 
 }

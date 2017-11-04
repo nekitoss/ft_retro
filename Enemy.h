@@ -20,9 +20,11 @@
 class Enemy : public AItem {
 public:
     Enemy(int x, int y);
+    Enemy();
     Enemy(const Enemy &enemy);
     Enemy &operator=(Enemy const &enemy);
     ~Enemy();
+    static unsigned int random_interval(unsigned int min, unsigned int max);
 
 };
 

@@ -16,13 +16,14 @@
 
 
 class AItem {
-private:
+protected:
     int _X;
     int _Y;
     int _X0;
     int _Y0;
 public:
     AItem(int x, int y);
+    AItem();
     AItem(AItem const &item);
     AItem &operator=(AItem const &item);
     virtual ~AItem();
