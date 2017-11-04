@@ -13,6 +13,8 @@
 #ifndef VIZU_HPP
 # define VIZU_HPP
 
+# include <ncurses.h>
+
 class Vizu
 {
 public:
@@ -27,6 +29,8 @@ private:
 	int		_size_x;
 	int		_size_y;
 	int		_score;
+	// Player	p1;
+	Enemy 	en[10];
 	
 };
 

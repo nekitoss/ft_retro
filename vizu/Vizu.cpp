@@ -43,7 +43,25 @@ void	Vizu::setScore(int val)
 }
 
 void	Vizu::start_vizu()
-{
-	//
+{//75r*281c 98/282 52*154
+	char ch = 0;
+	// int x = 10;
+	// int y = 10;
+
+	initscr();
+	noecho();
+ 	// printw("Hello World !!!");
+ 	// refresh();
+ 	ch = getch();
+ 	addch(ch | A_REVERSE);
+ 	// addch(ACS_LRCORNER);
+ 	// printw("Presed %d", ch);
+ 	// if (ch == 27)
+ 	// 	endwin();
+ 	refresh();
+ 	getch();
+ 	endwin();
+
+
 }
 
