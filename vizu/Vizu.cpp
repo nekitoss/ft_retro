@@ -12,7 +12,7 @@
 
 #include "Vizu.hpp"
 
-	Vizu::Vizu(int x, int y) : _size_x(x), _size_y(y)
+	Vizu::Vizu(int x, int y) : _size_x(x), _size_y(y), _score(0)
 {
 
 }
@@ -21,6 +21,7 @@
 {
 	this->_size_y = src._size_y;
 	this->_size_x = src._size_x;
+	this->_score = src._score;
 }
 
 	Vizu::~Vizu()
@@ -32,6 +33,7 @@
 {
 	this->_size_y = src._size_y;
 	this->_size_x = src._size_x;
+	this->_score = src._score;
 	return (*this);
 }
 

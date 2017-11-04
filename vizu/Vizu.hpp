@@ -25,6 +25,7 @@ public:
 private:
 	int		_size_x;
 	int		_size_y;
+	int		_score;
 	
 };
 
