@@ -18,7 +18,8 @@ FLAGS = -Wall -Wextra -Werror
 
 NAME = ft_retro
 
-SRC = main.cpp
+SRC = main.cpp\
+		vizu/Vizu.cpp
 
 OBJ = $(SRC:.cpp=.o)
 

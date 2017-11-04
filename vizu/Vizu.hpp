@@ -1,22 +1,31 @@
 // ************************************************************************** //
 //                                                                            //
 //                                                        :::      ::::::::   //
-//   main.cpp                                           :+:      :+:    :+:   //
+//   Vizu.hpp                                           :+:      :+:    :+:   //
 //                                                    +:+ +:+         +:+     //
 //   By: mpochuka <marvin@42.fr>                    +#+  +:+       +#+        //
 //                                                +#+#+#+#+#+   +#+           //
-//   Created: 2017/11/04 18:09:28 by mpochuka          #+#    #+#             //
-//   Updated: 2017/11/04 18:09:31 by mpochuka         ###   ########.fr       //
+//   Created: 2017/11/04 18:14:57 by mpochuka          #+#    #+#             //
+//   Updated: 2017/11/04 18:14:58 by mpochuka         ###   ########.fr       //
 //                                                                            //
 // ************************************************************************** //
 
-#include "vizu/Vizu.hpp"
+#ifndef VIZU_HPP
+# define VIZU_HPP
 
-int			main()
+class Vizu
 {
-	Vizu viz;
+public:
+	Vizu();
+	Vizu(Vizu const & src);
+	~Vizu();
+	Vizu& operator=(Vizu& src);
 
-	viz.start_vizu();
+	void start_vizu();
+private:
+	int		_size_x;
+	int		_size_y;
+	
+};
 
-	return (0);
-}
+#endif
