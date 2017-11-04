@@ -23,7 +23,7 @@ SRC = main.cpp\
 
 OBJ = $(SRC:.cpp=.o)
 
-INC = -I ./
+INC = -I ./ -I ./vizu
 
 NCURSES = -lncurses
 

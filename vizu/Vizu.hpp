@@ -16,8 +16,8 @@
 class Vizu
 {
 public:
-	Vizu();
-	Vizu(Vizu const & src);
+	Vizu(int x = 50, int y = 50);
+	Vizu(Vizu& src);
 	~Vizu();
 	Vizu& operator=(Vizu& src);
 
