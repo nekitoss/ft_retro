@@ -44,6 +44,6 @@ void	Vizu::setScore(int val)
 
 void	Vizu::start_vizu()
 {
-	
+	//
 }
 
