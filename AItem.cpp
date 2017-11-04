@@ -53,3 +53,14 @@ void AItem::move(int x, int y) {
     else
         std::cout << "cant move" << std::endl;
 }
+
+bool AItem::operator==(const AItem &rhs) const {
+    return _X == rhs._X &&
+           _Y == rhs._Y &&
+           _X0 == rhs._X0 &&
+           _Y0 == rhs._Y0;
+}
+
+bool AItem::operator!=(const AItem &rhs) const {
+    return !(rhs == *this);
+}

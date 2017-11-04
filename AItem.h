@@ -29,6 +29,10 @@ public:
     virtual ~AItem();
     void move(int x, int y);
     virtual void takeDamage(int i);
+
+    bool operator==(const AItem &rhs) const;
+
+    bool operator!=(const AItem &rhs) const;
 };
 
 

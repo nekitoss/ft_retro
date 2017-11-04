@@ -30,8 +30,12 @@ Enemy &Enemy::operator=(Enemy const &enemy) {
 }
 
 Enemy::Enemy():AItem() {
-    _X = random_interval(0, 150);
-    _Y = random_interval(0, 150);
+    AItem tmp;
+    tmp._X0 = 0;
+    tmp._Y0 = 0;
+    tmp._X = random_interval(0, 150); /// change to constant
+    tmp._Y = random_interval(0, 50); /// change to constant
+
 }
 
 unsigned int Enemy::random_interval(unsigned int min, unsigned int max) {
