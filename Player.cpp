@@ -12,13 +12,14 @@
 
 
 #include "Player.h"
+#include <iostream>
 
 Player::Player(int x, int y) : AItem(x, y) {
-
+    std::cout << "Player is ready" << std::endl;
 }
 
 Player::Player(const Player &enemy) : AItem(enemy) {
-
+    std::cout << "Player is reade" << std::endl;
 }
 
 Player &Player::operator=(Player const &player) {
@@ -30,5 +31,8 @@ Player &Player::operator=(Player const &player) {
 }
 
 Player::~Player() {
-
+    std::cout << "Player is die =(" << std::endl;
 }
+
+
+

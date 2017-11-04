@@ -23,7 +23,7 @@ public:
     Enemy();
     Enemy(const Enemy &enemy);
     Enemy &operator=(Enemy const &enemy);
-    ~Enemy();
+     ~Enemy();
     static unsigned int random_interval(unsigned int min, unsigned int max);
 
 };

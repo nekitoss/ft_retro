@@ -15,6 +15,8 @@
 #define RUSH00_ITEM_H
 
 
+
+
 class AItem {
 protected:
     int _X;
@@ -30,6 +32,8 @@ public:
     void move(int x, int y);
    // virtual void takeDamage(int i);
 
+
+
     bool operator==(const AItem &rhs) const;
 
     bool operator!=(const AItem &rhs) const;
@@ -42,6 +46,8 @@ public:
     int get_X0() const;
 
     int get_Y0() const;
+
+    //int checkCollision(Enemy *const *pEnemy); ///// ohh
 };
 
 

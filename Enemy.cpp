@@ -13,6 +13,7 @@
 
 #include "Enemy.h"
 #include <cstdlib>
+#include <iostream>
 
 Enemy::Enemy(int x, int y):AItem(x, y) {
 
@@ -37,6 +38,8 @@ Enemy::Enemy():AItem() {
     _X = random_interval(0, 150); /// change to constant
     _Y = random_interval(0, 50); /// change to constant
 
+    std::cout << "Enemy born!!" << std::endl;
+
 }
 
 unsigned int Enemy::random_interval(unsigned int min, unsigned int max) {
@@ -56,6 +59,6 @@ unsigned int Enemy::random_interval(unsigned int min, unsigned int max) {
 }
 
 Enemy::~Enemy() {
-
+    std::cout << "Enemy die!!! UHHHHU" << std::endl;
 }
 

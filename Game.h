@@ -25,12 +25,18 @@ public:
     int static const H = 50;
     int static const COUNT_ENEMYS  = 20;
     Game();
+    void setup();
+    void gameOver();
+
 
     virtual ~Game();
-
 private:
     Player *player;
     Enemy *enemys_array[COUNT_ENEMYS];
+public:
+    Player *getPlayer() const;
+
+    Enemy *const *getEnemys_array() const;
 };
 
 

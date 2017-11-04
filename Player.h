@@ -21,6 +21,7 @@ public:
     Player(int x, int y);
     Player(const Player &enemy);
     Player &operator=(Player const &enemy);
+
     ~Player();
 };
 

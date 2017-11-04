@@ -16,22 +16,39 @@
 #include <iostream>
 
 Game::Game() {
-    player = new Player(0, 0);
+    player = new Player(0, 0); // add player with position
+    setup(); // generate enamy
+
+}
+
+Game::~Game() {
+
+}
+
+void Game::setup() {
     for (int i = 0; i < COUNT_ENEMYS; ++i) {
         enemys_array[i] = new Enemy();
         for (int j = 0; j < i; ++j) {
             if (enemys_array[i] == enemys_array[j]) {
                 delete enemys_array[j];
                 enemys_array[j] = new Enemy();
-            std::cout << "Colizia !!!"  << std::endl;
+                std::cout << "Colizia !!!"  << std::endl;
             }
         }
-        std::cout << "Enemy pos x = " << enemys_array[i]->get_X() << " y = " << enemys_array[i]->get_Y() << " x0 " << enemys_array[i]->get_X0() << " y0 " << enemys_array[i]->get_Y0() << std::endl;
     }
-
-
 }
 
-Game::~Game() {
+void Game::gameOver() {
+    delete player;
+    for (int i = 0; i < COUNT_ENEMYS ; ++i) {
+        delete enemys_array[i];
+    }
+}
 
+Player *Game::getPlayer() const {
+    return player;
+}
+
+Enemy *const *Game::getEnemys_array() const {
+    return enemys_array;
 }

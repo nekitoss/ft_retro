@@ -56,9 +56,8 @@ void AItem::move(int x, int y) {
 
 bool AItem::operator==(const AItem &rhs) const {
     return _X == rhs._X &&
-           _Y == rhs._Y &&
-           _X0 == rhs._X0 &&
-           _Y0 == rhs._Y0;
+           _Y == rhs._Y;
+
 }
 
 bool AItem::operator!=(const AItem &rhs) const {
@@ -80,3 +79,14 @@ int AItem::get_X0() const {
 int AItem::get_Y0() const {
     return _Y0;
 }
+
+//int AItem::checkCollision(AItem &itam) {
+//    if (*this == itam)
+//        return 1;
+//    return 0;
+//}
+
+
+
+
+
