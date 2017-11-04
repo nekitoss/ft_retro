@@ -37,13 +37,13 @@
 	return (*this);
 }
 
-void	setScore(int val)
+void	Vizu::setScore(int val)
 {
 	this->_score += val;
 }
 
 void	Vizu::start_vizu()
 {
-
+	
 }
 
