@@ -1,2 +1,5 @@
 ft_retro
 *.o
+.idea/
+CMakeLists.txt
+cmake-build-debug/
