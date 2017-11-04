@@ -20,6 +20,8 @@ NAME = ft_retro
 
 SRC = main.cpp\
 		vizu/Vizu.cpp
+		# Enemy.cpp\
+		# AItem.cpp
 
 OBJ = $(SRC:.cpp=.o)
 

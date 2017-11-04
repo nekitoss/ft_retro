@@ -10,13 +10,27 @@
 //                                                                            //
 // ************************************************************************** //
 
+#include <iostream>
 #include "vizu/Vizu.hpp"
+
+extern int	size_x;
+extern int	size_y;
 
 int			main()
 {
 	Vizu viz;
 
-	viz.start_vizu();
+	if (viz.start_vizu())
+	{
+
+	}
+	else
+		std::cout << "Window size is too small!"
+		<< std::endl
+		<< "Plz make window bigger and/or make font smaller."
+		<< std::endl
+		<< "Then try again... (Minimum size is " 
+		<< viz.minX << 'x' << viz.minY << ')' << std::endl;
 
 	return (0);
 }

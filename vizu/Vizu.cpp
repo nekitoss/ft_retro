@@ -12,15 +12,18 @@
 
 #include "Vizu.hpp"
 
-	Vizu::Vizu(int x, int y) : _size_x(x), _size_y(y), _score(0)
+int	size_x;
+int	size_y;
+
+	Vizu::Vizu() : minX(13), minY(22), _score(0)
 {
 
 }
 
-	Vizu::Vizu(Vizu& src)
+	Vizu::Vizu(Vizu& src) : minX(13), minY(22)
 {
-	this->_size_y = src._size_y;
-	this->_size_x = src._size_x;
+	// this->_size_y = src._size_y;
+	// this->_size_x = src._size_x;
 	this->_score = src._score;
 }
 
@@ -31,8 +34,8 @@
 
 	Vizu& Vizu::operator=(Vizu& src)
 {
-	this->_size_y = src._size_y;
-	this->_size_x = src._size_x;
+	// this->_size_y = src._size_y;
+	// this->_size_x = src._size_x;
 	this->_score = src._score;
 	return (*this);
 }
@@ -42,13 +45,19 @@ void	Vizu::setScore(int val)
 	this->_score += val;
 }
 
-void	Vizu::start_vizu()
-{//75r*281c 98/282 52*154
+int		Vizu::start_vizu()
+{//75r*281c 98/282 52*154 50*150
 	char ch = 0;
 	// int x = 10;
 	// int y = 10;
 
 	initscr();
+	getmaxyx(stdscr, size_y, size_x);
+	if (size_y < 30 && size_x < 100)
+	{
+		endwin();
+		return (0);
+	}
 	noecho();
  	// printw("Hello World !!!");
  	// refresh();
@@ -61,7 +70,7 @@ void	Vizu::start_vizu()
  	refresh();
  	getch();
  	endwin();
-
+ 	return (1);
 
 }
 

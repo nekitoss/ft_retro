@@ -14,23 +14,26 @@
 # define VIZU_HPP
 
 # include <ncurses.h>
+// # include <../Enemy.h>
 
 class Vizu
 {
 public:
-	Vizu(int x = 50, int y = 50);
+	Vizu();
 	Vizu(Vizu& src);
 	~Vizu();
 	Vizu& operator=(Vizu& src);
 
-	void	start_vizu();
+	int		start_vizu();
 	void	setScore(int val);
+
+	const int	minX;
+	const int	minY;
 private:
-	int		_size_x;
-	int		_size_y;
-	int		_score;
+	
+	int			_score;
 	// Player	p1;
-	Enemy 	en[10];
+	// Enemy 	en[10];
 	
 };
 
