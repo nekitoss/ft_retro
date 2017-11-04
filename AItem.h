@@ -28,11 +28,20 @@ public:
     AItem &operator=(AItem const &item);
     virtual ~AItem();
     void move(int x, int y);
-    virtual void takeDamage(int i);
+   // virtual void takeDamage(int i);
 
     bool operator==(const AItem &rhs) const;
 
     bool operator!=(const AItem &rhs) const;
+
+
+    int get_X() const;
+
+    int get_Y() const;
+
+    int get_X0() const;
+
+    int get_Y0() const;
 };
 
 

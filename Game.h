@@ -19,15 +19,18 @@
 #include "Enemy.h"
 
 class Game {
-private:
-    Player *player;
-    Enemy *enemys_array[COUNT_ENEMYS];
+
 public:
     int static const W = 50;
     int static const H = 50;
     int static const COUNT_ENEMYS  = 20;
     Game();
 
+    virtual ~Game();
+
+private:
+    Player *player;
+    Enemy *enemys_array[COUNT_ENEMYS];
 };
 
 

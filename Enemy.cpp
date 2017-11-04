@@ -27,14 +27,15 @@ Enemy &Enemy::operator=(Enemy const &enemy) {
         AItem::operator=(enemy);
         // add diff
     }
+    return *this;
 }
 
 Enemy::Enemy():AItem() {
-    AItem tmp;
-    tmp._X0 = 0;
-    tmp._Y0 = 0;
-    tmp._X = random_interval(0, 150); /// change to constant
-    tmp._Y = random_interval(0, 50); /// change to constant
+
+    _X0 = 0;
+    _Y0 = 0;
+    _X = random_interval(0, 150); /// change to constant
+    _Y = random_interval(0, 50); /// change to constant
 
 }
 
@@ -52,5 +53,9 @@ unsigned int Enemy::random_interval(unsigned int min, unsigned int max) {
     while (r >= (int) limit)
         r = rand();
     return (min + (r / buckets));
+}
+
+Enemy::~Enemy() {
+
 }
 

@@ -10,13 +10,16 @@
 //                                                                            //
 // ************************************************************************** //
 
+#include <iostream>
 #include "vizu/Vizu.hpp"
-
+#include "Game.h"
 int			main()
 {
 	Vizu viz;
 
 	viz.start_vizu();
 
+	Game game;
+    std::cout << game.H << std::endl;
 	return (0);
 }

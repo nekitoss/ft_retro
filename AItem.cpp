@@ -64,3 +64,19 @@ bool AItem::operator==(const AItem &rhs) const {
 bool AItem::operator!=(const AItem &rhs) const {
     return !(rhs == *this);
 }
+
+int AItem::get_X() const {
+    return _X;
+}
+
+int AItem::get_Y() const {
+    return _Y;
+}
+
+int AItem::get_X0() const {
+    return _X0;
+}
+
+int AItem::get_Y0() const {
+    return _Y0;
+}

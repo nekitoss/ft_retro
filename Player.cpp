@@ -26,6 +26,7 @@ Player &Player::operator=(Player const &player) {
         AItem::operator=(player);
         // add diff
     }
+    return *this;
 }
 
 Player::~Player() {
