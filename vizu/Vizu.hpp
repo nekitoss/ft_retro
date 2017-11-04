@@ -21,7 +21,8 @@ public:
 	~Vizu();
 	Vizu& operator=(Vizu& src);
 
-	void start_vizu();
+	void	start_vizu();
+	void	setScore(int val);
 private:
 	int		_size_x;
 	int		_size_y;
