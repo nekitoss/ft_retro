@@ -16,13 +16,13 @@
 
 void Bullet::makeFire(int x, int ye, int yp) {
     for (int i = ye; i < yp ; i++) {
-        mvaddch(i, x, '*' | A_BOLD | A_REVERSE);
+        mvaddch(i, x, '.');
     }
 }
 
 void Bullet::cleanFire(int x, int ye, int yp) {
     for (int i = ye; i < yp ; i++) {
-        mvaddch(i, x, '_' | A_BOLD | A_REVERSE);
+        mvaddch(i, x, '_' | A_INVIS);
     }
 }
 
@@ -48,7 +48,7 @@ void Bullet::setY(int Y) {
 
 void Bullet::makeFire() {
     for (int i = getYe(); i < getYp() ; i++) {
-        mvaddch(i, getX(), '*' | A_BOLD | A_REVERSE);
+        mvaddch(i, getX(), '.' );
     }
 }
 
@@ -56,7 +56,7 @@ void Bullet::cleanFire() {
 
     for (int i = getYe(); i < getYp() ; i++) {
 
-        mvaddch(i, getX(), ' ');
+        mvaddch(i, getX(), ' ' | A_INVIS);
     }
 }
 

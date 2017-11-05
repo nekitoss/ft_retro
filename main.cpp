@@ -46,21 +46,16 @@ int			main()
         //game.getEnemys_array()[i] )
     }
 
-
-    //printw(" x %d, y %d dx %d dy %d lines %d cpls %d \n", player->get_X(), player->get_Y(),  Game::H / 2, Game::W / 2, LINES, COLS);
     player->move(Game::W / 2, Game::H / 2);
 
-    //printw(" x %d, y %d dx %d dy %d lines %d cpls %d \n", player->get_X(), player->get_Y(), (LINES - Game::H) / 2, (COLS - Game::W) / 2, LINES, COLS);
-    /*mvaddch(player->get_Y(), player->get_X(), player->getCh() | A_REVERSE);
-    refresh();
-*/
+
 
 
 
 
 
     int ch;
-
+    nodelay(stdscr, TRUE);
     noecho();
     wtimeout(game.getGame_window(), 0);
     curs_set(0);
@@ -68,12 +63,11 @@ int			main()
 
     time_t timer;
     time(&timer);
-
     time_t bullet;
     time(&bullet);
 
     while(!exit_requested) {
-        nodelay(stdscr, TRUE);
+
         ch = wgetch(game.getGame_window());
 
         if(static_cast<int>(difftime(time(0), timer)) >= 1)
@@ -82,7 +76,21 @@ int			main()
             time(&timer);
             game.move_enemys_per_time();
 
+            for (int i = 0; i < game.COUNT_ENEMYS; ++i) {
+                AItem *enemys = game.getEnemys_array()[i];
+                if (player->checkCollision(enemys) == 1) ///// dont work coorect
+                {
+                    printw("Colizia !!!\n"); //  << std::endl;
+                    game.gameOver();
+                    exit_requested = true;
+                }
+                if (exit_requested)
+                    break;
+            }
         }
+        if (exit_requested)
+            break ;
+
         switch (ch) {
             case 'q':
                 exit_requested = true;
@@ -117,7 +125,10 @@ int			main()
             default:
                 break;
         }
-        player->print();
+
+        attron(COLOR_PAIR(2));
+            player->print();
+        attroff(COLOR_PAIR(2));
         game.print_enemus();
         if (player->bullet->isIsFire() && (difftime(time(0), bullet)) >= 0.5)
 
@@ -139,11 +150,10 @@ int			main()
             }
         refresh();
     }
-    wrefresh(game.getGame_window());
-    wtimeout(game.getGame_window(), -1);
+
+    timeout(-1);
     getch();
-    game.gameOver();
-    endwin();
+    endwin(); /* End curses mode */
 
     return 0;
 }

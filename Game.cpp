@@ -29,7 +29,7 @@ Game::Game() {
     Game::H = getmaxy(game_window);
     Game::W = getmaxx(game_window);
 
-
+    start_color();
     // useful color pairs
     init_pair(1, COLOR_WHITE, COLOR_BLACK);
     init_pair(2, COLOR_GREEN, COLOR_BLACK);
@@ -76,7 +76,20 @@ void Game::gameOver() {
         delete enemys_array[i];
     }
 
-    exit(0);
+    erase();
+    // clear();
+    // werase(this->getGame_window());
+    // wclear(this->getGame_window());
+    refresh();
+    // wrefresh(this->getGame_window());
+    attron(A_BOLD | A_REVERSE | COLOR_PAIR(4));
+    mvprintw(LINES/2, COLS/2, "GAME OVER!");
+    attroff(A_BOLD | A_REVERSE | COLOR_PAIR(4));
+    refresh();
+    // wrefresh(this->getGame_window());
+    // while(1);
+
+
 }
 
 Player *Game::getPlayer() const {
@@ -113,21 +126,20 @@ void Game::run() {
     //stars.setBounds(game_area);
 
     Player *player = getPlayer();
-    mvaddch(player->get_Y(), player->get_Y(), player->getCh());
+    mvaddch(player->get_Y(), player->get_Y(), player->getCh() | COLOR_PAIR(2));
     refresh();
 
 }
 
 void Game::print_enemus() {
 
-
+    attron(COLOR_PAIR(4));
     for (int i = 0; i < COUNT_ENEMYS ; ++i) {
         AItem *en = getEnemys_array()[i];
         //printw(" x %d, y %d ch %d \n", en->get_X(), en->get_Y(), en->getCh());
-
         en->print();
     }
-
+    attroff(COLOR_PAIR(4));
 }
 
 void Game::move_enemys_per_time() {
