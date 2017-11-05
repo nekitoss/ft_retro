@@ -28,7 +28,7 @@ Game::Game() {
     Game::H = getmaxy(game_window);
     Game::W = getmaxx(game_window);
 
-
+    start_color();
     // useful color pairs
     init_pair(1, COLOR_WHITE, COLOR_BLACK);
     init_pair(2, COLOR_GREEN, COLOR_BLACK);
@@ -110,21 +110,20 @@ void Game::run() {
     //stars.setBounds(game_area);
 
     Player *player = getPlayer();
-    mvaddch(player->get_Y(), player->get_Y(), player->getCh());
+    mvaddch(player->get_Y(), player->get_Y(), player->getCh() | COLOR_PAIR(2));
     refresh();
 
 }
 
 void Game::print_enemus() {
 
-
+    attron(COLOR_PAIR(4));
     for (int i = 0; i < COUNT_ENEMYS ; ++i) {
         AItem *en = getEnemys_array()[i];
         //printw(" x %d, y %d ch %d \n", en->get_X(), en->get_Y(), en->getCh());
-
         en->print();
     }
-
+    attron(COLOR_PAIR(4));
 }
 
 //void Game::print_enemus() {

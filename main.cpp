@@ -46,11 +46,12 @@ int			main()
     }
 
 
+
     //printw(" x %d, y %d dx %d dy %d lines %d cpls %d \n", player->get_X(), player->get_Y(),  Game::H / 2, Game::W / 2, LINES, COLS);
     player->move(Game::W / 2, Game::H / 2);
 
     //printw(" x %d, y %d dx %d dy %d lines %d cpls %d \n", player->get_X(), player->get_Y(), (LINES - Game::H) / 2, (COLS - Game::W) / 2, LINES, COLS);
-    mvaddch(player->get_Y(), player->get_X(), player->getCh() | A_REVERSE);
+    mvaddch(player->get_Y(), player->get_X(), player->getCh() | A_REVERSE |COLOR_PAIR(2));
     refresh();
 
 
@@ -105,7 +106,9 @@ int			main()
             default:
                 break;
         }
-        player->print();
+        attron(COLOR_PAIR(2));
+            player->print();
+        attron(COLOR_PAIR(2));
         game.print_enemus();
 
         //mvaddch(player->get_Y0(), player->get_X0(), ' ' | A_INVIS);
