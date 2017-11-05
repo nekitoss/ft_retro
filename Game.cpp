@@ -44,7 +44,7 @@ Game::Game() {
 
     player = new Player(0, 0); // add player with position
     setup(); // generate enamy
-   // printw(" w wind %d, %d %d \n", Game::W, Game::H, 1);
+    printw(" w  %d,  h %d \n", Game::W, Game::H);
    // printw(" w wind %d, %d %d \n", w, h, 1);
     wrefresh(game_window);
     //std::cout << "Constructor Game::H = " << h << "Game::W = " << w << std::endl;
