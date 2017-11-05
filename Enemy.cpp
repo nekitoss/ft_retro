@@ -38,7 +38,7 @@ Enemy::Enemy():AItem() {
     _X = random_interval(0, 150); /// change to constant
     _Y = random_interval(0, 50); /// change to constant
 
-    std::cout << "Enemy born!!" << std::endl;
+    std::cout << "Enemy born!! _X = " << _X << " _Y = " << _Y << std::endl;
 
 }
 

@@ -21,17 +21,24 @@ int			main()
 	viz.start_vizu();
 
 	Game game;
-    for (int i = 0; i < game.COUNT_ENEMYS; ++i) {
-        AItem *player = game.getPlayer();
+    AItem *player = game.getPlayer();
+    player->move(0, 6);
 
-//        if (player->checkCollision(&(game.getEnemys_array()[i])) == 1) ///// dont work coorect
-//        {
-//
-//        }
+
+
+
+    for (int i = 0; i < game.COUNT_ENEMYS; ++i) {
+
+        AItem *enemy = game.getEnemys_array()[i];
+        if (player->checkCollision(enemy) == 1) ///// dont work coorect
+        {
+            std::cout << "Colizia !!!"  << std::endl;
+            game.gameOver();
+        }
 
         //game.getEnemys_array()[i] )
     }
     game.gameOver();
-    std::cout << game.H << std::endl;
+    //std::cout << game.H << std::endl;
 	return (0);
 }

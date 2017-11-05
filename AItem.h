@@ -48,6 +48,7 @@ public:
     int get_Y0() const;
 
     //int checkCollision(Enemy *const *pEnemy); ///// ohh
+    int checkCollision(AItem *pItem);
 };
 
 

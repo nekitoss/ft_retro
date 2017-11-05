@@ -80,6 +80,13 @@ int AItem::get_Y0() const {
     return _Y0;
 }
 
+int AItem::checkCollision(AItem *pItem) {
+    if (*this == *pItem)
+            return 1;
+        return 0;
+
+}
+
 //int AItem::checkCollision(AItem &itam) {
 //    if (*this == itam)
 //        return 1;
