@@ -72,11 +72,13 @@ int			main()
             {
                 printw("Colizia !!!\n"); //  << std::endl;
                  game.gameOver();
+                 exit_requested = true;
             }
-
-
+            if (exit_requested)
+                break ;
         }
-
+        if (exit_requested)
+            break ;
 
         switch (ch) {
             case 'q':
@@ -106,6 +108,7 @@ int			main()
             default:
                 break;
         }
+
         attron(COLOR_PAIR(2));
             player->print();
         attron(COLOR_PAIR(2));
@@ -138,7 +141,9 @@ int			main()
                 break;
         }
     }*/
-    game.gameOver();
+    // game.gameOver();
+    timeout(-1);
+    getch();
     endwin(); /* End curses mode */
     return 0;
 }

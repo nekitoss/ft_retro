@@ -74,6 +74,19 @@ void Game::gameOver() {
     for (int i = 0; i < COUNT_ENEMYS ; ++i) {
         delete enemys_array[i];
     }
+    erase();
+    // clear();
+    // werase(this->getGame_window());
+    // wclear(this->getGame_window());
+    refresh();
+    // wrefresh(this->getGame_window());
+    attron(A_BOLD | A_REVERSE | COLOR_PAIR(4));
+    mvprintw(LINES/2, COLS/2, "GAME OVER!");
+    attroff(A_BOLD | A_REVERSE | COLOR_PAIR(4));
+    refresh();
+    // wrefresh(this->getGame_window());
+    // while(1);
+
 }
 
 Player *Game::getPlayer() const {
