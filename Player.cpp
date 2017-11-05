@@ -15,7 +15,7 @@
 #include <iostream>
 
 Player::Player(int x, int y) : AItem(x, y) {
-    ch = 'P';
+    ch = 'Y';
     std::cout << "Player is ready _X = " << _X <<"_Y = " << _Y << std::endl;
 }
 

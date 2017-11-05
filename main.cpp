@@ -21,7 +21,7 @@ int			main()
 {
 	Vizu viz;
 
-	viz.start_vizu();
+	//viz.start_vizu();
 
 
     Game game;
@@ -51,8 +51,16 @@ int			main()
     //int startx, starty;
 //    int width, height;
 
-    player->move((LINES - Game::H) / 2, (COLS - Game::W) / 2);
-    printw("%d, %d %d \n", LINES, COLS, (LINES - Game::H) / 2);
+    printw(" x %d, y %d dx %d dy %d lines %d cpls %d \n", player->get_X(), player->get_Y(),  Game::H / 2, Game::W / 2, LINES, COLS);
+
+    //player->move(Game::H / 2, Game::W / 2);
+    player->move(Game::H / 2, Game::W / 2);
+
+    printw(" x %d, y %d dx %d dy %d lines %d cpls %d \n", player->get_X(), player->get_Y(), (LINES - Game::H) / 2, (COLS - Game::W) / 2, LINES, COLS);
+    //mvaddch(player->get_Y(), player->get_X(), player->getCh() | A_REVERSE);
+
+    mvaddch(31, 123, player->getCh() | A_REVERSE);
+
     refresh();
 
 
@@ -62,52 +70,52 @@ int			main()
 //    int bot = Game::H;
 //    int left = 0;
 //    int right = Game::W;
-    int ch;
+   int ch;
 
     while((ch = getch()) != 'q') {
         switch (ch) {
             case 'q':
                 //exit_requested = true;
                 break;
-            case KEY_UP:
-            case 'w':
-            case 'i':
-                //if (player->get_Y() > top)
-                    player->move(0, -1);
-                //destroy_win(my_win);
-                //my_win = create_newwin(height, width, --starty,startx);
-                    //player.pos.y -= 1;
-                break;
-            case KEY_DOWN:
-            case 's':
-            case 'k':
-                //if (player->get_Y() > bot + 1)
-                    player->move(0, 1);
-                //destroy_win(my_win);
-                //my_win = create_newwin(height, width, ++starty,startx);
-                break;
-            case KEY_LEFT:
-            case 'a':
-            case 'j':
-                //if (player->get_X() > left + 1)
-                    player->move(-1, 0);
-                //destroy_win(my_win);
-                //my_win = create_newwin(height, width, starty, --startx);
-                break;
-            case KEY_RIGHT:
-            case 'd':
-            case 'l':
-                //if (player->get_X() < right - 2)
-                    player->move(1, 0);
-                //destroy_win(my_win);
-                //my_win = create_newwin(height, width, starty, ++startx);
-                break;
-            default:
-                break;
+//            case KEY_UP:
+//            case 'w':
+//            case 'i':
+//                //if (player->get_Y() > top)
+//                    player->move(0, -1);
+//                //destroy_win(my_win);
+//                //my_win = create_newwin(height, width, --starty,startx);
+//                    //player.pos.y -= 1;
+//                break;
+//            case KEY_DOWN:
+//            case 's':
+//            case 'k':
+//                //if (player->get_Y() > bot + 1)
+//                    player->move(0, 1);
+//                //destroy_win(my_win);
+//                //my_win = create_newwin(height, width, ++starty,startx);
+//                break;
+//            case KEY_LEFT:
+//            case 'a':
+//            case 'j':
+//                //if (player->get_X() > left + 1)
+//                    player->move(-1, 0);
+//                //destroy_win(my_win);
+//                //my_win = create_newwin(height, width, starty, --startx);
+//                break;
+//            case KEY_RIGHT:
+//            case 'd':
+//            case 'l':
+//                //if (player->get_X() < right - 2)
+//                    player->move(1, 0);
+//                //destroy_win(my_win);
+//                //my_win = create_newwin(height, width, starty, ++startx);
+//                break;
+//            default:
+//                break;
         }
-        mvaddch(player->get_X0(), player->get_Y0(), ' ');
-        mvaddch(player->get_Y(), player->get_Y(), player->getCh());
-        refresh();
+        //mvaddch(player->get_X0(), player->get_Y0(), ' ');
+        //mvaddch(player->get_Y(), player->get_Y(), player->getCh());
+        //refresh();
     }
 
 
