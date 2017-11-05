@@ -12,6 +12,7 @@
 
 
 #include "Enemy.h"
+#include "Game.h"
 #include <cstdlib>
 #include <iostream>
 
@@ -36,8 +37,8 @@ Enemy::Enemy():AItem() {
 
     _X0 = 0;
     _Y0 = 0;
-    _X = random_interval(0, 150); /// change to constant
-    _Y = random_interval(0, 50); /// change to constant
+    _X = random_interval(0, Game::W); /// change to constant
+    _Y = random_interval(0, Game::H); /// change to constant
 
    // std::cout << "Enemy born!! _X = " << _X << " _Y = " << _Y << std::endl;
 

@@ -115,6 +115,15 @@ void Game::run() {
 
 }
 
+void Game::print_enemus() {
+    Enemy *enemys = (Enemy *) getEnemys_array();
+
+    for (int i = 0; i < COUNT_ENEMYS ; ++i) {
+        enemys[i].print();
+    }
+
+}
+
 //void Game::print_enemus() {
 //    AItem *enemys = getEnemys_array();
 //}

@@ -91,10 +91,12 @@ int			main()
             default:
                 break;
         }
-        // player->print();
-        mvaddch(player->get_Y0(), player->get_X0(), ' ' | A_INVIS);
+        player->print();
+        game.print_enemus();
+
+        //mvaddch(player->get_Y0(), player->get_X0(), ' ' | A_INVIS);
         //printw(" x %d, y %d x0 %d y0 %d \n", player->get_X(), player->get_Y(),  player->get_X0(), player->get_Y0());
-        mvaddch(player->get_Y(), player->get_X(), player->getCh() | A_BOLD | A_REVERSE);
+        //mvaddch(player->get_Y(), player->get_X(), player->getCh() | A_BOLD | A_REVERSE);
         refresh();
     }
 
