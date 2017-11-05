@@ -29,7 +29,7 @@ int			main()
 
 
     AItem *player = game.getPlayer();
-
+    printw(" x %d, y %d ch %d \n", player->get_X(), player->get_Y(), player->getCh());
 
     for (int i = 0; i < game.COUNT_ENEMYS; ++i) {
 
@@ -37,8 +37,10 @@ int			main()
         if (player->checkCollision(enemys) == 1) ///// dont work coorect
         {
             std::cout << "Colizia !!!"  << std::endl;
-           // game.gameOver(); seackfoult
+            // game.gameOver(); seackfoult
         }
+
+
 
         //game.getEnemys_array()[i] )
     }
@@ -59,10 +61,22 @@ int			main()
     wtimeout(game.getGame_window(), 0);
     curs_set(0);
     bool exit_requested = false;
-    // attron(A_BOLD | A_REVERSE);
-
     while(!exit_requested) {
         ch = wgetch(game.getGame_window());
+
+        for (int i = 0; i < game.COUNT_ENEMYS; ++i) {
+
+            AItem *enemys = game.getEnemys_array()[i];
+            if (player->checkCollision(enemys) == 1) ///// dont work coorect
+            {
+                printw("Colizia !!!\n"); //  << std::endl;
+                 game.gameOver();
+            }
+
+
+        }
+
+
         switch (ch) {
             case 'q':
                 exit_requested = true;

@@ -16,12 +16,12 @@
 #include <cstdlib>
 #include <iostream>
 
-Enemy::Enemy(int x, int y):AItem(x, y) {
-    ch = 'E';
+Enemy::Enemy(int x, int y): AItem(x, y) {
+    this->ch = 'E';
 }
 
 Enemy::Enemy(const Enemy &item) : AItem(item) {
-    ch = item.ch;
+    this->ch = item.ch;
     //add diff
 }
 
@@ -35,10 +35,11 @@ Enemy &Enemy::operator=(Enemy const &enemy) {
 
 Enemy::Enemy():AItem() {
 
+    this->ch = 'E';
     _X0 = 0;
     _Y0 = 0;
-    _X = random_interval(0, Game::W); /// change to constant
-    _Y = random_interval(0, Game::H); /// change to constant
+    _X = random_interval(0, (unsigned int)Game::W); /// change to constant
+    _Y = random_interval(0, (unsigned int)Game::H/2); /// change to constant
 
    // std::cout << "Enemy born!! _X = " << _X << " _Y = " << _Y << std::endl;
 

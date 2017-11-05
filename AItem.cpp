@@ -14,7 +14,8 @@
 #include <iostream>
 #include "AItem.h"
 #include "Game.h"
-AItem::AItem(int x, int y): _X(x), _Y(y), _X0(x), _Y0(y){}
+AItem::AItem(int x, int y): _X(x), _Y(y), _X0(x), _Y0(y){
+}
 
 AItem::AItem(AItem const &item) {
     *this = item;

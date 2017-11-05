@@ -116,10 +116,13 @@ void Game::run() {
 }
 
 void Game::print_enemus() {
-    Enemy *enemys = (Enemy *) getEnemys_array();
+
 
     for (int i = 0; i < COUNT_ENEMYS ; ++i) {
-        enemys[i].print();
+        AItem *en = getEnemys_array()[i];
+        //printw(" x %d, y %d ch %d \n", en->get_X(), en->get_Y(), en->getCh());
+
+        en->print();
     }
 
 }
