@@ -55,8 +55,10 @@ int			main()
 
    int ch;
 
+    noecho();
+    curs_set(0);
+    // attron(A_BOLD | A_REVERSE);
     while((ch = wgetch(game.getGame_window())) != 'q') {
-
 
         switch (ch) {
             case 'q':
@@ -85,11 +87,10 @@ int			main()
             default:
                 break;
         }
-
-        player->print();
-
-//        mvaddch(player->get_Y0(), player->get_X0(), ' ');
-//        mvaddch(player->get_Y(), player->get_X(), player->getCh()| A_REVERSE);
+        // player->print();
+        mvaddch(player->get_Y0(), player->get_X0(), ' ' | A_INVIS);
+        //printw(" x %d, y %d x0 %d y0 %d \n", player->get_X(), player->get_Y(),  player->get_X0(), player->get_Y0());
+        mvaddch(player->get_Y(), player->get_X(), player->getCh() | A_BOLD | A_REVERSE);
         refresh();
     }
 
