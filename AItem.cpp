@@ -114,6 +114,15 @@ void AItem::print() {
 }
 
 
+void AItem::set_X(int X)
+{
+    _X = X;
+}
+void AItem::set_y(int Y)
+{
+    _Y = Y;
+}
+
 
 
 

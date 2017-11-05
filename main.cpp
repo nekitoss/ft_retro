@@ -30,7 +30,7 @@ int			main()
 
 
     Player *player = game.getPlayer();
-    printw(" x %d, y %d ch %d \n", player->get_X(), player->get_Y(), player->getCh());
+    //printw(" x %d, y %d ch %d \n", player->get_X(), player->get_Y(), player->getCh());
 
     for (int i = 0; i < game.COUNT_ENEMYS; ++i) {
 
@@ -78,7 +78,7 @@ int			main()
 
             for (int i = 0; i < game.COUNT_ENEMYS; ++i) {
                 AItem *enemys = game.getEnemys_array()[i];
-                if (player->checkCollision(enemys) == 1) ///// dont work coorect
+                if (player->checkCollision(enemys) == 1)
                 {
                     printw("Colizia !!!\n"); //  << std::endl;
                     game.gameOver();
@@ -99,28 +99,35 @@ int			main()
             case KEY_UP:
             case 'w':
             case 'i':
+                    player->bullet->cleanFire();
                     player->move(0, -1);
                 break;
             case KEY_DOWN:
             case 's':
             case 'k':
+                player->bullet->cleanFire();
                     player->move(0, 1);
                 break;
             case KEY_LEFT:
             case 'a':
             case 'j':
+                    player->bullet->cleanFire();
                     player->move(-1, 0);
                 break;
             case KEY_RIGHT:
             case 'd':
             case 'l':
+                player->bullet->cleanFire();
                 player->move(1, 0);
                 break;
             case ' ':
 
-                time(&bullet);
-                player->bullet->setIsFire(true);
+
+                if (!player->bullet->isIsFire())
+                {time(&bullet);player->bullet->setIsFire(true);
                 game.fire();
+                    //mvprintw(0, 0," AFTER fire gX() %d, Yp() %d, Ye() %d", player->bullet->getX(), player->bullet->getYp(), player->bullet->getYe());
+                }
                 break;
             default:
                 break;
@@ -130,11 +137,16 @@ int			main()
             player->print();
         attroff(COLOR_PAIR(2));
         game.print_enemus();
-        if (player->bullet->isIsFire() && (difftime(time(0), bullet)) >= 0.5)
+        if (player->bullet->isIsFire() && (difftime(time(0), bullet)) >= 0.2)
 
         {
-            player->bullet->setIsFire(false);
+            time(&bullet);
+            //printw("player->bullet->getX() %d, player->bullet->getYp() %d, player->bullet->getYe() %d", player->bullet->getX(), player->bullet->getYp(), player->bullet->getYe());
             player->bullet->cleanFire();
+            player->bullet->setIsFire(false);
+            //mvprintw(1, 0," AFTER clean gX() %d, Yp() %d, Ye() %d\n", player->bullet->getX(), player->bullet->getYp(), player->bullet->getYe());
+
+
         }
             for (int i = 0; i < game.COUNT_ENEMYS; ++i) {
                 AItem *enemys = game.getEnemys_array()[i];
@@ -149,6 +161,7 @@ int			main()
                 }
             }
         refresh();
+
     }
 
     timeout(-1);

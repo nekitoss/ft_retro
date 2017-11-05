@@ -29,9 +29,10 @@ public:
 public:
     Bullet(int X, int Y0, int Y);
 
+
     void setX(int X);
 
-    void setY0(int Y0);
+    void setYp(int Y0);
 
     void setY(int Y);
 

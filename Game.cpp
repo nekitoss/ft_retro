@@ -163,30 +163,31 @@ void Game::move_enemys_per_time() {
 void Game::fire() {
 
 
-    bool locat_is_fire = false;
-    for (int i = 0; i < COUNT_ENEMYS; ++i) {
-        Enemy *enemys = getEnemys_array()[i];
-        if(getPlayer()->get_X() == enemys->get_X() && getPlayer()->get_Y() > enemys->get_Y())
-        {
-            getPlayer()->bullet->setY(enemys->get_Y());
-            getPlayer()->bullet->setY0(getPlayer()->get_Y());
-            getPlayer()->bullet->setX(getPlayer()->get_X());
+    if (getPlayer()->bullet->isIsFire()) {
+        bool locat_is_fire = false;
+        for (int i = 0; i < COUNT_ENEMYS; ++i) {
+            Enemy *enemys = getEnemys_array()[i];
+            if (getPlayer()->get_X() == enemys->get_X() && getPlayer()->get_Y() > enemys->get_Y()) {
+                getPlayer()->bullet->setY(enemys->get_Y());
+                getPlayer()->bullet->setYp(getPlayer()->get_Y());
+                getPlayer()->bullet->setX(getPlayer()->get_X());
 
+                getPlayer()->bullet->makeFire();
+                //printw("player->bullet->getX() %d, player->bullet->getYp() %d, player->bullet->getYe() %d", player->bullet->getX(), player->bullet->getYp(), player->bullet->getYe());
+
+                enemys->die();
+                locat_is_fire = true;
+
+            }
+        }
+        if (!locat_is_fire) {
+
+            getPlayer()->bullet->setY(0);
+            getPlayer()->bullet->setYp(getPlayer()->get_Y());
+            getPlayer()->bullet->setX(getPlayer()->get_X());
             getPlayer()->bullet->makeFire();
 
-            enemys->die();
-            locat_is_fire = true;
-
         }
-    }
-    if (!locat_is_fire)
-    {
-
-        getPlayer()->bullet->setY(0);
-        getPlayer()->bullet->setY0(getPlayer()->get_Y());
-        getPlayer()->bullet->setX(getPlayer()->get_X());
-        getPlayer()->bullet->makeFire();
-
     }
 }
 

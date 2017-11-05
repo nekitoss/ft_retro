@@ -66,15 +66,33 @@ Enemy::~Enemy() {
 }
 
 void Enemy::die() {
-    move(0, -Game::H + 2);
+    int x = random_interval(0, (unsigned int)Game::W);
+    int y = random_interval(0, (unsigned int)Game::H/2);
+    this->set_X(x);
+    this->set_y(y);
+    //printw("player->bullet->getX() %d, player->bullet->getYp() %d, player->bullet->getYe() %d", get_X(), get_Y(), get_Y());
+
+    this->move(0 , 0);
+    //printw("player->bullet->getX() %d, player->bullet->getYp() %d, player->bullet->getYe() %d", get_X(), get_Y(), get_Y());
 }
 
 void Enemy::move(int x, int y) {
     AItem::move(x, y);
+
     if (_Y == Game::H -2)
     {
         _Y = 0;
     }
 
+}
+
+void Enemy::set_X(int X) {
+
+    AItem::set_X(X);
+}
+
+void Enemy::set_y(int Y) {
+
+    AItem::set_y(Y);
 }
 

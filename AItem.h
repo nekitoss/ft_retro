@@ -40,6 +40,8 @@ public:
 
     bool operator!=(const AItem &rhs) const;
 
+    virtual void set_X(int X);
+    virtual void set_y(int Y);
 
     int get_X() const;
 

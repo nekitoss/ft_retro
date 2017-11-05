@@ -38,8 +38,8 @@ void Bullet::setX(int X) {
     this->X = X;
 }
 
-void Bullet::setY0(int Y0) {
-   this->Yp = Y0;
+void Bullet::setYp(int Yp) {
+   this->Yp = Yp;
 }
 
 void Bullet::setY(int Y) {
@@ -50,14 +50,20 @@ void Bullet::makeFire() {
     for (int i = getYe(); i < getYp() ; i++) {
         mvaddch(i, getX(), '.' );
     }
+    //refresh();
 }
 
 void Bullet::cleanFire() {
 
-    for (int i = getYe(); i < getYp() ; i++) {
+    int ye = getYe();
+    int yp = getYp();
+    int x = getX();
+    for (int i = ye; i < yp  ; i++) {
+        //printw("Cllear");
 
-        mvaddch(i, getX(), ' ' | A_INVIS);
+        mvaddch(i, x, ' ' | A_INVIS);
     }
+    //refresh();
 }
 
 bool Bullet::isIsFire() const {

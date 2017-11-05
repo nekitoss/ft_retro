@@ -23,11 +23,15 @@ public:
     Enemy();
     Enemy(const Enemy &enemy);
     Enemy &operator=(Enemy const &enemy);
-     ~Enemy();
+    virtual ~Enemy();
     static unsigned int random_interval(unsigned int min, unsigned int max);
     void die();
 
     virtual void move(int x, int y);
+
+    void set_X(int X) ;
+
+    void set_y(int Y) ;
 };
 
 
