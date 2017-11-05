@@ -44,7 +44,7 @@ Game::Game() {
 
     player = new Player(0, 0); // add player with position
     setup(); // generate enamy
-    printw(" w  %d,  h %d \n", Game::W, Game::H);
+    //printw(" w  %d,  h %d \n", Game::W, Game::H);
    // printw(" w wind %d, %d %d \n", w, h, 1);
     wrefresh(game_window);
     //std::cout << "Constructor Game::H = " << h << "Game::W = " << w << std::endl;
@@ -63,7 +63,7 @@ void Game::setup() {
             if (enemys_array[i] == enemys_array[j]) {
                 delete enemys_array[j];
                 enemys_array[j] = new Enemy();
-                std::cout << "Colizia !!!"  << std::endl;
+                //std::cout << "Colizia !!!"  << std::endl;
             }
         }
     }
@@ -114,3 +114,7 @@ void Game::run() {
     refresh();
 
 }
+
+//void Game::print_enemus() {
+//    AItem *enemys = getEnemys_array();
+//}

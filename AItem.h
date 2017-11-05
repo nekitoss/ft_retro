@@ -31,6 +31,7 @@ public:
     AItem &operator=(AItem const &item);
     virtual ~AItem();
     void move(int x, int y);
+    void print();
    // virtual void takeDamage(int i);
 
 

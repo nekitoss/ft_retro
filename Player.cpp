@@ -16,11 +16,11 @@
 
 Player::Player(int x, int y) : AItem(x, y) {
     ch = 'Y';
-    std::cout << "Player is ready _X = " << _X <<"_Y = " << _Y << std::endl;
+    //std::cout << "Player is ready _X = " << _X <<"_Y = " << _Y << std::endl;
 }
 
 Player::Player(const Player &player) : AItem(player) {
-    std::cout << "Player is reade" << std::endl;
+    //std::cout << "Player is reade" << std::endl;
     ch = player.ch;
 }
 
@@ -33,7 +33,7 @@ Player &Player::operator=(Player const &player) {
 }
 
 Player::~Player() {
-    std::cout << "Player is die =(" << std::endl;
+    //std::cout << "Player is die =(" << std::endl;
 }
 
 

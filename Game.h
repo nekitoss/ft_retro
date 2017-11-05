@@ -46,6 +46,7 @@ public:
     WINDOW *getGame_window() const;
     void setGame_window(WINDOW *game_window);
     void run();
+    void print_enemus();
     Player *getPlayer() const;
     Enemy *const *getEnemys_array() const;
 

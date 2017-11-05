@@ -39,7 +39,7 @@ Enemy::Enemy():AItem() {
     _X = random_interval(0, 150); /// change to constant
     _Y = random_interval(0, 50); /// change to constant
 
-    std::cout << "Enemy born!! _X = " << _X << " _Y = " << _Y << std::endl;
+   // std::cout << "Enemy born!! _X = " << _X << " _Y = " << _Y << std::endl;
 
 }
 
@@ -60,6 +60,6 @@ unsigned int Enemy::random_interval(unsigned int min, unsigned int max) {
 }
 
 Enemy::~Enemy() {
-    std::cout << "Enemy die!!! UHHHHU" << std::endl;
+    //std::cout << "Enemy die!!! UHHHHU" << std::endl;
 }
 
