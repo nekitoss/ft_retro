@@ -16,10 +16,11 @@
 #include <iostream>
 
 Enemy::Enemy(int x, int y):AItem(x, y) {
-
+    ch = 'E';
 }
 
 Enemy::Enemy(const Enemy &item) : AItem(item) {
+    ch = item.ch;
     //add diff
 }
 

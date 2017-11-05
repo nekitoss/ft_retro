@@ -23,6 +23,7 @@ protected:
     int _Y;
     int _X0;
     int _Y0;
+    int ch;
 public:
     AItem(int x, int y);
     AItem();
@@ -49,6 +50,8 @@ public:
 
     //int checkCollision(Enemy *const *pEnemy); ///// ohh
     int checkCollision(AItem *pItem);
+
+    int getCh() const;
 };
 
 

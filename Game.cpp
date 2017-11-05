@@ -14,10 +14,37 @@
 #include "Game.h"
 #include <cstdlib>
 #include <iostream>
-
+int Game::H = 0;
+int Game::W = 0;
 Game::Game() {
+    initscr();
+    Game::H = getmaxy(game_window);
+    Game::W = getmaxx(game_window);
+
+
+    game_window  = newwin(Game::W, Game::H, 1, 1);
+    //int h = getmaxy(game_window);
+    //int w = getmaxx(game_window);
+
+    // useful color pairs
+    init_pair(1, COLOR_WHITE, COLOR_BLACK);
+    init_pair(2, COLOR_GREEN, COLOR_BLACK);
+    init_pair(3, COLOR_YELLOW, COLOR_BLACK);
+    init_pair(4, COLOR_RED, COLOR_BLACK);
+    init_pair(5, COLOR_BLUE, COLOR_BLACK);
+
+    // enable function keys
+    keypad(game_window, true);
+
+    // disable input blocking
+    nodelay(game_window, true);
+
     player = new Player(0, 0); // add player with position
     setup(); // generate enamy
+    printw(" w wind %d, %d %d \n", Game::W, Game::H, 1);
+    wrefresh(game_window);
+    //std::cout << "Constructor Game::H = " << h << "Game::W = " << w << std::endl;
+
 
 }
 
@@ -51,4 +78,35 @@ Player *Game::getPlayer() const {
 
 Enemy *const *Game::getEnemys_array() const {
     return enemys_array;
+}
+
+int Game::getW() const {
+    return W;
+}
+
+int Game::getH() const {
+    return H;
+}
+
+WINDOW *Game::getGame_window() const {
+    return game_window;
+}
+
+void Game::setGame_window(WINDOW *game_window) {
+    this->game_window = game_window;
+}
+
+void Game::run() {
+    //int tick;
+
+    // initialize player as before
+
+    // constrain object fields to game area
+    //asteroids.setBounds(game_window);
+    //stars.setBounds(game_area);
+
+    Player *player = getPlayer();
+    mvaddch(player->get_Y(), player->get_Y(), player->getCh());
+    refresh();
+
 }

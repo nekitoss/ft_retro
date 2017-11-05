@@ -43,7 +43,9 @@ AItem &AItem::operator=(AItem const &item) {
 }
 
 void AItem::move(int x, int y) {
-    if (_X + x < Game::W || _Y + y < Game::H || _X + x > 0 || _Y + y > 0)
+    std::cout << "_X = " << _X << "_Y = " << _Y << "_X0 = " << _X0 << _Y0 << _Y0 << std::endl;
+    std::cout << "Game::H = " << Game::H << "Game::W = " << Game::W << std::endl;
+    if (_X + x < Game::H || _Y + y < Game::W || _X + x < 0 || _Y + y < 0)
     {
         _X0 = _X;
         _Y0 = _Y;
@@ -52,6 +54,9 @@ void AItem::move(int x, int y) {
     }
     else
         std::cout << "cant move" << std::endl;
+
+
+    //std::cout << "_X = " << _X << "_Y = " << _Y << "_X0 = " << _X0 << _Y0 << _Y0 << std::endl;
 }
 
 bool AItem::operator==(const AItem &rhs) const {
@@ -85,6 +90,10 @@ int AItem::checkCollision(AItem *pItem) {
             return 1;
         return 0;
 
+}
+
+int AItem::getCh() const {
+    return ch;
 }
 
 //int AItem::checkCollision(AItem &itam) {
