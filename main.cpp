@@ -22,7 +22,7 @@ int			main()
 
 	if (viz.start_vizu())
 	{
-
+		
 	}
 	else
 		std::cout << "Window size is too small!"
