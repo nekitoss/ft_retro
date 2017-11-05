@@ -43,18 +43,19 @@ AItem &AItem::operator=(AItem const &item) {
 }
 
 void AItem::move(int x, int y) {
-    std::cout << "_X = " << _X << "_Y = " << _Y << "_X0 = " << _X0 << _Y0 << _Y0 << std::endl;
-    std::cout << "Game::H = " << Game::H << "Game::W = " << Game::W << std::endl;
-    if (_X + x < Game::H || _Y + y < Game::W || _X + x < 0 || _Y + y < 0)
+    //std::cout << "_X = " << _X << "_Y = " << _Y << "_X0 = " << _X0 << _Y0 << _Y0 << std::endl;
+    //std::cout << "Game::H = " << Game::H << "Game::W = " << Game::W << std::endl;
+    if (_X + x < Game::H || _Y + y < Game::W || _X + x > 0 || _Y + y > 0)
     {
         _X0 = _X;
         _Y0 = _Y;
         _X += x;
         _Y += y;
     }
-    else
-        std::cout << "cant move" << std::endl;
 
+    /*else
+        std::cout << "cant move" << std::endl;
+*/
 
     //std::cout << "_X = " << _X << "_Y = " << _Y << "_X0 = " << _X0 << _Y0 << _Y0 << std::endl;
 }

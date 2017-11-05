@@ -18,13 +18,16 @@ int Game::H = 0;
 int Game::W = 0;
 Game::Game() {
     initscr();
+    //getmaxyx()
+
+
+
+    int h = getmaxy(stdscr);
+    int w = getmaxx(stdscr);
+    game_window  = newwin(h, w, 1, 1);
     Game::H = getmaxy(game_window);
     Game::W = getmaxx(game_window);
 
-
-    game_window  = newwin(Game::W, Game::H, 1, 1);
-    //int h = getmaxy(game_window);
-    //int w = getmaxx(game_window);
 
     // useful color pairs
     init_pair(1, COLOR_WHITE, COLOR_BLACK);
@@ -41,7 +44,8 @@ Game::Game() {
 
     player = new Player(0, 0); // add player with position
     setup(); // generate enamy
-    printw(" w wind %d, %d %d \n", Game::W, Game::H, 1);
+   // printw(" w wind %d, %d %d \n", Game::W, Game::H, 1);
+   // printw(" w wind %d, %d %d \n", w, h, 1);
     wrefresh(game_window);
     //std::cout << "Constructor Game::H = " << h << "Game::W = " << w << std::endl;
 
