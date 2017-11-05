@@ -82,7 +82,7 @@ int			main()
             case 'i':
                 //if (player->get_Y() > top)
                     player->move(0, -1);
-                printw("UP");
+                //printw("UP");
                 //destroy_win(my_win);
                 //my_win = create_newwin(height, width, --starty,startx);
                     //player.pos.y -= 1;
@@ -90,7 +90,7 @@ int			main()
             case KEY_DOWN:
             case 's':
             case 'k':
-                printw("DOWN");
+                //printw("DOWN");
                 //if (player->get_Y() > bot + 1)
                     player->move(0, 1);
                 //destroy_win(my_win);
@@ -99,7 +99,7 @@ int			main()
             case KEY_LEFT:
             case 'a':
             case 'j':
-                printw("LEFT");
+                //printw("LEFT");
                 //if (player->get_X() > left + 1)
                     player->move(-1, 0);
                 //destroy_win(my_win);
@@ -109,7 +109,7 @@ int			main()
             case 'd':
             case 'l':
                 //if (player->get_X() < right - 2)
-                printw("RIGHT");
+                //printw("RIGHT");
                 player->move(1, 0);
                 //destroy_win(my_win);
                 //my_win = create_newwin(height, width, starty, ++startx);
