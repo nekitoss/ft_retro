@@ -1,4 +1,4 @@
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        /* ************************************************************************** */
+/* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   Bullet.h                                           :+:      :+:    :+:   */
@@ -15,11 +15,40 @@
 #define RUSH00_BULLET_H
 
 
-
 class Bullet {
+private:
+    int X;
+    int Yp;
+    int Ye;
+    bool isFire;
+public:
+    bool isIsFire() const;
 
+    void setIsFire(bool isFire);
+
+public:
+    Bullet(int X, int Y0, int Y);
+
+    void setX(int X);
+
+    void setY0(int Y0);
+
+    void setY(int Y);
+
+    virtual ~Bullet();
+
+    void makeFire(int x, int yp, int ye);
+    void makeFire();
+    void cleanFire(int x, int yp, int ye);
+
+    int getX() const;
+
+    int getYp() const;
+
+    int getYe() const;
+
+    void cleanFire();
 };
-
 
 
 #endif //RUSH00_BULLET_H

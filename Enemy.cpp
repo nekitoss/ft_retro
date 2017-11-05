@@ -65,3 +65,16 @@ Enemy::~Enemy() {
     //std::cout << "Enemy die!!! UHHHHU" << std::endl;
 }
 
+void Enemy::die() {
+    move(0, -Game::H + 2);
+}
+
+void Enemy::move(int x, int y) {
+    AItem::move(x, y);
+    if (_Y == Game::H -2)
+    {
+        _Y = 0;
+    }
+
+}
+

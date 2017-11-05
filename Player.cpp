@@ -12,16 +12,19 @@
 
 
 #include "Player.h"
+
 #include <iostream>
+#include <ncurses.h>
 
 Player::Player(int x, int y) : AItem(x, y) {
     ch = 'Y';
-    //std::cout << "Player is ready _X = " << _X <<"_Y = " << _Y << std::endl;
+    bullet = new Bullet(0, 0, 0);
+
 }
 
 Player::Player(const Player &player) : AItem(player) {
-    //std::cout << "Player is reade" << std::endl;
     ch = player.ch;
+
 }
 
 Player &Player::operator=(Player const &player) {
@@ -33,8 +36,24 @@ Player &Player::operator=(Player const &player) {
 }
 
 Player::~Player() {
+    delete bullet;
     //std::cout << "Player is die =(" << std::endl;
 }
+
+void Player::move(int x, int y) {
+    AItem::move(x, y);
+    bullet->setX(get_X());
+}
+
+
+
+
+
+
+
+
+
+
 
 
 

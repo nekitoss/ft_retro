@@ -18,6 +18,7 @@ int Game::H = 0;
 int Game::W = 0;
 Game::Game() {
     initscr();
+    curs_set(0);
     //getmaxyx()
 
 
@@ -74,6 +75,8 @@ void Game::gameOver() {
     for (int i = 0; i < COUNT_ENEMYS ; ++i) {
         delete enemys_array[i];
     }
+
+    exit(0);
 }
 
 Player *Game::getPlayer() const {
@@ -126,6 +129,60 @@ void Game::print_enemus() {
     }
 
 }
+
+void Game::move_enemys_per_time() {
+    for (int i = 0; i < COUNT_ENEMYS; ++i) {
+
+        AItem *enemys = getEnemys_array()[i];
+        enemys->move(0, 1);
+        if (player->checkCollision(enemys) == 1)
+        {
+            printw("Colizia !!!\n");
+            wrefresh(getGame_window());
+            wtimeout(getGame_window(), -1);
+            getch();
+            endwin();
+            gameOver();
+        }
+    }
+
+}
+
+void Game::fire() {
+
+
+    bool locat_is_fire = false;
+    for (int i = 0; i < COUNT_ENEMYS; ++i) {
+        Enemy *enemys = getEnemys_array()[i];
+        if(getPlayer()->get_X() == enemys->get_X() && getPlayer()->get_Y() > enemys->get_Y())
+        {
+            getPlayer()->bullet->setY(enemys->get_Y());
+            getPlayer()->bullet->setY0(getPlayer()->get_Y());
+            getPlayer()->bullet->setX(getPlayer()->get_X());
+
+            getPlayer()->bullet->makeFire();
+
+            enemys->die();
+            locat_is_fire = true;
+
+        }
+    }
+    if (!locat_is_fire)
+    {
+
+        getPlayer()->bullet->setY(0);
+        getPlayer()->bullet->setY0(getPlayer()->get_Y());
+        getPlayer()->bullet->setX(getPlayer()->get_X());
+        getPlayer()->bullet->makeFire();
+
+    }
+}
+
+
+
+
+
+
 
 //void Game::print_enemus() {
 //    AItem *enemys = getEnemys_array();

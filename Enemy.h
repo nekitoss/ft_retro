@@ -25,7 +25,9 @@ public:
     Enemy &operator=(Enemy const &enemy);
      ~Enemy();
     static unsigned int random_interval(unsigned int min, unsigned int max);
+    void die();
 
+    virtual void move(int x, int y);
 };
 
 

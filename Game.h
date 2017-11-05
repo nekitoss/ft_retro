@@ -42,10 +42,11 @@ public:
 public:
     int getW() const;
     int getH() const;
-
+    void fire();
     WINDOW *getGame_window() const;
     void setGame_window(WINDOW *game_window);
     void run();
+    void move_enemys_per_time();
     void print_enemus();
     Player *getPlayer() const;
     Enemy *const *getEnemys_array() const;

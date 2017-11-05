@@ -15,14 +15,21 @@
 #define RUSH00_PLAYER_H
 
 #include "AItem.h"
+#include "Bullet.h"
+
 
 class Player : public AItem{
+
 public:
     Player(int x, int y);
     Player(const Player &enemy);
     Player &operator=(Player const &enemy);
 
-    ~Player();
+    virtual void move(int x, int y);
+
+    Bullet *bullet;
+
+    virtual ~Player();
 };
 
 
