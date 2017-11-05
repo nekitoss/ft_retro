@@ -11,7 +11,6 @@
 // ************************************************************************** //
 
 #include <iostream>
-#include "vizu/Vizu.hpp"
 #include "Game.h"
 #include <ctime>
 #include <ncurses.h>
@@ -20,12 +19,7 @@ void destroy_win(WINDOW *local_win);
 
 int			main()
 {
-	Vizu viz;
-
-	//viz.start_vizu();
-
-
-    Game game;
+	Game game;
 
 
 
@@ -155,7 +149,7 @@ int			main()
                     printw("Colizia !!!\n");
                     wrefresh(game.getGame_window());
                     wtimeout(game.getGame_window(), -1);
-                    getch();
+                    wgetch(game.getGame_window());
                     endwin();
                     game.gameOver();
                 }
@@ -165,7 +159,8 @@ int			main()
     }
 
     timeout(-1);
-    getch();
+wgetch(game.getGame_window());
+    delwin(game.getGame_window());
     endwin(); /* End curses mode */
 
     return 0;
