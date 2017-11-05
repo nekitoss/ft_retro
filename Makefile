@@ -19,7 +19,7 @@ FLAGS = -Wall -Wextra -Werror
 NAME = ft_retro
 
 SRC = main.cpp\
-		vizu/Vizu.cpp Game.cpp Enemy.cpp AItem.cpp Player.cpp Bullet.cpp
+		Game.cpp Enemy.cpp AItem.cpp Player.cpp Bullet.cpp
 
 OBJ = $(SRC:.cpp=.o)
 
