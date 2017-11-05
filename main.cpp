@@ -56,12 +56,16 @@ int			main()
    int ch;
 
     noecho();
+    wtimeout(game.getGame_window(), 0);
     curs_set(0);
+    bool exit_requested = false;
     // attron(A_BOLD | A_REVERSE);
-    while((ch = wgetch(game.getGame_window())) != 'q') {
 
+    while(!exit_requested) {
+        ch = wgetch(game.getGame_window());
         switch (ch) {
             case 'q':
+                exit_requested = true;
 
                 break;
             case KEY_UP:
